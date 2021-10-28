@@ -23,8 +23,7 @@ weatherForm.addEventListener(`submit`, (e) => {
         msg1.textContent = data.error;
       } else {
         msg1.textContent = data.location;
-        msg2.textContent = data.forecast.temperature;
-        msg2.textContent = data.forecast.weather_description;
+        msg2.textContent = `Is is currently ${data.forecast.temperature} degrees ceclius and ${data.forecast.weather_description}.`;
       }
     });
   });
