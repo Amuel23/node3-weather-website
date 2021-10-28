@@ -17,17 +17,15 @@ weatherForm.addEventListener(`submit`, (e) => {
   msg1.textContent = `Loading...`;
   msg2.textContent = ``;
 
-  fetch(`http://localhost:3000/weather?location=` + location).then(
-    (response) => {
-      response.json().then((data) => {
-        if (data.error) {
-          msg1.textContent = data.error;
-        } else {
-          msg1.textContent = data.location;
-          msg2.textContent = data.forecast.temperature;
-          msg2.textContent = data.forecast.weather_description;
-        }
-      });
-    }
-  );
+  fetch(`/weather?location=` + location).then((response) => {
+    response.json().then((data) => {
+      if (data.error) {
+        msg1.textContent = data.error;
+      } else {
+        msg1.textContent = data.location;
+        msg2.textContent = data.forecast.temperature;
+        msg2.textContent = data.forecast.weather_description;
+      }
+    });
+  });
 });

@@ -14,6 +14,7 @@ app.set(`views`, viewsPath);
 hbs.registerPartials(partialsPath);
 //Setup static directory to serve
 app.use(express.static(publicDir));
+const port = process.env.PORT || 3000;
 
 app.get("", (req, res) => {
   res.render("index", {
@@ -93,6 +94,6 @@ app.get("/*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log(`Server is up on port 3000`);
+app.listen(port, () => {
+  console.log(`Server is up on ` + port);
 });
